@@ -3,6 +3,22 @@ public class LinkedList {
   private Node head;
   private Node tail;
   
+  public void insert(String name, int score) {
+     
+    Node newNode = new Node(name, score);
+    
+    //If head is empty, the new node is the head
+    if(isEmpty()) {
+      head = newNode;
+      head.setNext(tail);
+    //if the heads score is less than the new node
+    } else if(head.getScore() <= newNode.getScore()) {
+      newNode.setNext(head);
+      head = newNode;
+    }
+    
+  }
+
   
   /**
    * Method that checks the size of the list
