@@ -11,16 +11,14 @@ public class LinkedList {
     if(isEmpty()) {
       head = newNode;
       head.setNext(tail);
-    //if the heads score is less than the new node
+    //if the heads score is less than the new node, than add to the front of the list
     } else if(head.getScore() <= newNode.getScore()) {
       newNode.setNext(head);
       head = newNode;
     }
-    
   }
 
-  
-  /**
+ /**
    * Method that checks the size of the list
    */
   public int size() {
@@ -47,7 +45,7 @@ public class LinkedList {
     Node temp = head;
     while(temp!= null)
     {
-      System.out.println(temp.getName());
+      System.out.println(temp.getName() + "-" + temp.getScore());
       temp = temp.getNext();
     }
   }
