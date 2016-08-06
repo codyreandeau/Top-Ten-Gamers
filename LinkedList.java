@@ -11,11 +11,27 @@ public class LinkedList {
     if(isEmpty()) {
       head = newNode;
       head.setNext(tail);
-    //if the heads score is less than the new node, than add to the front of the list
-    } else if(head.getScore() <= newNode.getScore()) {
-      newNode.setNext(head);
-      head = newNode;
-    }
+    }else{
+      Node temp = head;
+      Node pre = null;
+      //Until temps score is greater than the newNodes score, execute while loop
+      while(temp != null && temp.getScore() > newNode.getScore()){
+                 pre = temp;
+                 temp = temp.getNext();
+            }
+              //If newNode does not fullfill the requirements of the above while loop 
+              //and is greater than temp, set as the head
+               if(pre == null){
+                head = newNode;
+                newNode.setNext(temp);
+            }
+               // If pre does not equal null, that means we need to place
+               // the newNode in its rightful place in the list
+               else{
+                pre.setNext(newNode);
+                newNode.setNext(temp);
+            } 
+        }
   }
 
  /**
