@@ -14,7 +14,7 @@ public class LinkedList {
     }else{
       Node temp = head;
       Node pre = null;
-      //Until temps score is greater than the newNodes score, execute while loop
+      //Until temps score is less than the newNodes score, execute while loop
       while(temp != null && temp.getScore() > newNode.getScore()){
                  pre = temp;
                  temp = temp.getNext();
@@ -32,7 +32,24 @@ public class LinkedList {
                 newNode.setNext(temp);
             } 
         }
-  }
+    //Call the greater than 10 method
+    greaterThanTen();
+    }
+  
+ /**
+   * Checks if the high score list is greater than 10
+   * Knocks off the lowest score if the list does goes over 10
+   */
+      public void greaterThanTen() {
+        if(size() > 10)
+         {
+            Node temp = head;
+            for (int i = 0; i < 9; i++) {
+                temp = temp.getNext();
+            }
+            temp.setNext(null);
+        }
+    }
 
  /**
    * Method that checks the size of the list
